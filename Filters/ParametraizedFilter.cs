@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MyPhotoshop.Filters
+namespace MyPhotoshop
 {
     public abstract class ParametraizedFilter : IFilter
     {
@@ -18,12 +18,11 @@ namespace MyPhotoshop.Filters
             return parameters.GetDescription();
         }
 
-        public Photo Process(Photo original, double[] parameters)
+        public Photo Process(Photo original, double[] values)
         {
-            throw new NotImplementedException();
+            this.parameters.SetValues(values);
+            return Process(original, this.parameters);
         }
-        public Photo Process(Photo original, double[] parameters) {
-            
-        }
+        public abstract Photo Process(Photo original, IParameters parameters);
     }
 }

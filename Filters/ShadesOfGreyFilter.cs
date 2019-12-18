@@ -7,15 +7,12 @@ namespace MyPhotoshop
 {
     class ShadesOfGreyFilter : PixelFiter
     {
-        override public ParameterInfo[] GetParameters()
-        {
-            return new ParameterInfo[0];
-        }
+        public ShadesOfGreyFilter() : base(new EmptyParameters()) { }
         override public string ToString()
         {
             return "ShadesOfGreyFilter";
         }
-        override protected Pixel PixelCalc(Pixel original, double[] parameters) {
+        override protected Pixel PixelCalc(Pixel original, IParameters parameters) {
             var light = original.R + original.G + original.B;
             light /= 3.0;
             return new Pixel(light, light, light);
