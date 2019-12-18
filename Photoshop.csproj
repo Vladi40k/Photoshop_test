@@ -38,6 +38,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Pixel.cs" />
+    <Compile Include="Filters\EmptyParameters.cs" />
+    <Compile Include="Filters\LighteningParameters.cs" />
+    <Compile Include="Filters\IParameters.cs" />
+    <Compile Include="Filters\ParametraizedFilter.cs" />
     <Compile Include="Filters\PixelFiter.cs" />
     <Compile Include="Filters\ShadesOfGreyFilter.cs" />
     <Compile Include="Filters\ParameterInfo.cs" />
