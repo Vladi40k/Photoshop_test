@@ -5,11 +5,10 @@ using System.Text;
 
 namespace MyPhotoshop
 {
-    public abstract class PixelFiter : ParametraizedFilter
+    public abstract class PixelFiter<TParameters> : ParametraizedFilter<TParameters>
+        where TParameters : IParameters, new()
     {
-        public PixelFiter(IParameters parameters) : base(parameters) { }
-
-        public override Photo Process(Photo original, IParameters parameters)
+        public override Photo Process(Photo original, TParameters parameters)
         {
             var result = new Photo(original.width, original.height);
             for (int x = 0; x < result.width; x++)
@@ -19,6 +18,6 @@ namespace MyPhotoshop
                 }
             return result;
         }
-        abstract protected Pixel PixelCalc(Pixel original, IParameters parameters);
+        abstract protected Pixel PixelCalc(Pixel original, TParameters parameters);
     }
 }
